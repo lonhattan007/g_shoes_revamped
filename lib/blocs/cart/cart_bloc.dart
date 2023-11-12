@@ -27,7 +27,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
         if (state.items.containsKey(idToAdd)) {
           // If the item exists, just increase the quantity
-          state.items[idToAdd]!.incrementQuantity();
+          int currentQuantity = state.items[idToAdd]!.quantity;
+
+          state.items[idToAdd] =
+              state.items[idToAdd]!.copyWith(quantity: currentQuantity + 1);
           emit(
             CartLoaded(
               items: state.items,
@@ -55,13 +58,15 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
         if (state.items.containsKey(idToUpdate)) {
           double priceToDecrease = state.items[idToUpdate]!.price;
+          int currentQuantity = state.items[idToUpdate]!.quantity;
 
-          if (state.items[idToUpdate]!.quantity == 1) {
+          if (currentQuantity == 1) {
             // Remove the item
             state.items.remove(idToUpdate);
           } else {
             // Only change the quantity
-            state.items[idToUpdate]!.decreaseQuantity();
+            state.items[idToUpdate] = state.items[idToUpdate]!
+                .copyWith(quantity: currentQuantity - 1);
           }
 
           emit(CartLoaded(

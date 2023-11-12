@@ -7,9 +7,10 @@ class CartItem extends Equatable {
   final String imageUrl;
   final double price;
   final String color;
-  int quantity;
+  final int quantity;
 
-  CartItem(this.id, this.name, this.imageUrl, this.price, this.color, this.quantity);
+  const CartItem(
+      this.id, this.name, this.imageUrl, this.price, this.color, this.quantity);
 
   CartItem.fromShoe(Shoe shoe)
       : id = shoe.id,
@@ -22,16 +23,6 @@ class CartItem extends Equatable {
   @override
   List<Object?> get props => [id, name, imageUrl, price, quantity];
 
-  void incrementQuantity() {
-    quantity += 1;
-  }
-
-  void decreaseQuantity() {
-    if (quantity > 0) {
-      quantity -= 1;
-    }
-  }
-
   @override
   String toString() {
     return """
@@ -41,5 +32,22 @@ class CartItem extends Equatable {
       price: $price
       ---------------------------
     """;
+  }
+
+  CartItem copyWith(
+      {int? id,
+      String? name,
+      String? imageUrl,
+      double? price,
+      String? color,
+      int? quantity,}) {
+    int newId = id ?? this.id;
+    String newName = name ?? this.name;
+    String newImageUrl = imageUrl ?? this.imageUrl;
+    double newPrice = price ?? this.price;
+    String newColor = color ?? this.color;
+    int newQuantity = quantity ?? this.quantity;
+
+    return CartItem(newId, newName, newImageUrl, newPrice, newColor, newQuantity);
   }
 }
