@@ -1,6 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:g_shoes_revamped/bloc/cart_bloc.dart';
+import 'package:g_shoes_revamped/blocs/cart/cart_bloc.dart';
 import 'package:g_shoes_revamped/models/cart_item_model.dart';
 
 import 'dart:math' as math;
@@ -29,7 +31,7 @@ class ProductCard extends StatelessWidget {
           child: Center(
             child: Transform.rotate(
               angle: -math.pi / 14,
-              child: Image.network(shoe.imageUrl),
+              child: ImageShadow(imageUrl: shoe.imageUrl),
             ),
           ),
         ),
@@ -85,6 +87,75 @@ class ProductCard extends StatelessWidget {
               }
             }),
           ],
+        ),
+      ],
+    );
+  }
+}
+
+class ImageWithShadow extends StatelessWidget {
+  const ImageWithShadow({
+    super.key,
+    required this.imageUrl,
+  });
+
+  final String imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Opacity(
+          opacity: 0.2,
+          child: Image.network(
+            imageUrl,
+            color: Colors.black.withAlpha(50),
+          ),
+        ),
+        ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: Image.network(imageUrl),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ImageShadow extends StatelessWidget {
+  const ImageShadow({super.key, required this.imageUrl});
+
+  final String imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        Opacity(
+          opacity: 0.2,
+          child: Image.network(
+            imageUrl,
+            color: Colors.black.withAlpha(50),
+          ),
+        ),
+        Center(
+          child: ClipRect(
+            // <-- clips to the 200x200 [Container] below
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 5.0,
+                sigmaY: 5.0,
+              ),
+              child: Container(
+                alignment: Alignment.center,
+                width: 200.0,
+                height: 200.0,
+                child: Image.network(imageUrl),
+              ),
+            ),
+          ),
         ),
       ],
     );

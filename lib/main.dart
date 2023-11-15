@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:g_shoes_revamped/screens/shopping_screen.dart';
+import 'package:g_shoes_revamped/screens/shopping_screen/shopping_screen.dart';
 import 'themes/custom_colorscheme.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:g_shoes_revamped/bloc/cart_bloc.dart';
+import 'package:g_shoes_revamped/blocs/cart/cart_bloc.dart';
 
 
 void main() {

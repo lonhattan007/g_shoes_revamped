@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:g_shoes_revamped/bloc/cart_bloc.dart';
+import 'package:g_shoes_revamped/blocs/cart/cart_bloc.dart';
 import 'package:g_shoes_revamped/components/cart_item_card.dart';
 import 'package:g_shoes_revamped/components/section_card.dart';
 

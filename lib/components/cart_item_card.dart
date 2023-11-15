@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:g_shoes_revamped/bloc/cart_bloc.dart';
+import 'package:g_shoes_revamped/blocs/cart/cart_bloc.dart';
 import 'package:g_shoes_revamped/models/cart_item_model.dart';
 import 'package:g_shoes_revamped/themes/custom_colorscheme.dart';
 import 'package:g_shoes_revamped/utils/hex_color.dart';
@@ -52,9 +52,9 @@ class CartItemCard extends StatelessWidget {
                         child: Container(
                           alignment: AlignmentDirectional.centerStart,
                           child: Text(
-                            // cartItem.name,
-                            'Some text',
-                            style: Theme.of(context).textTheme.labelLarge,
+                            cartItem.name,
+                            // 'Some text',
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
                       ),
@@ -89,7 +89,8 @@ class CartItemCard extends StatelessWidget {
                                 },
                                 child: Text(
                                   '-',
-                                  style: Theme.of(context).textTheme.displayLarge,
+                                  style:
+                                      Theme.of(context).textTheme.displayLarge,
                                 ),
                               ),
                               Container(
@@ -116,7 +117,8 @@ class CartItemCard extends StatelessWidget {
                                 },
                                 child: Text(
                                   '+',
-                                  style: Theme.of(context).textTheme.displayLarge,
+                                  style:
+                                      Theme.of(context).textTheme.displayLarge,
                                 ),
                               ),
                             ],
@@ -157,3 +159,4 @@ class CartItemCard extends StatelessWidget {
     );
   }
 }
+
