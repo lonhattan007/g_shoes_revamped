@@ -7,5 +7,4 @@ class Cart {
   double totalPrice;
 
   Cart(this.items, this.totalPrice);
-
 }

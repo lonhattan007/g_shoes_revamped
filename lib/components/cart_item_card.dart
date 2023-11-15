@@ -147,7 +147,7 @@ class CartItemCard extends StatelessWidget {
                         ],
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             );
@@ -159,4 +159,3 @@ class CartItemCard extends StatelessWidget {
     );
   }
 }
-

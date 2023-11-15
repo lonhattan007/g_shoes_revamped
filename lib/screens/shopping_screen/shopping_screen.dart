@@ -19,44 +19,47 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: customColorscheme.white,
-        body: Stack(
-          children: <Widget>[
-            const BackgroundAnimation(),
-            Center(
-              child: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                if (constraints.maxWidth > 800) {
-                  return const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      ProductsSection(),
-                      CartSection(),
-                    ],
-                  );
-                } else {
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: 2,
-                      itemBuilder: (BuildContext context, int index) {
-                        if (index == 0) {
-                          return Container(
-                            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 177),
-                            child: const ProductsSection(),
-                          );
-                        } else {
-                          return Container(
-                            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 177),
-                            child: const CartSection(),
-                          );
-                        }
-                      },
-                    ),
-                  );
-                }
-              }),
-            ),
-          ],
-        ));
+      backgroundColor: customColorscheme.white,
+      body: Stack(
+        children: <Widget>[
+          const BackgroundAnimation(),
+          Center(
+            child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+              if (constraints.maxWidth > 800) {
+                return const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ProductsSection(),
+                    CartSection(),
+                  ],
+                );
+              } else {
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: 2,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (index == 0) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 177),
+                          child: const ProductsSection(),
+                        );
+                      } else {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 177),
+                          child: const CartSection(),
+                        );
+                      }
+                    },
+                  ),
+                );
+              }
+            }),
+          ),
+        ],
+      ),
+    );
   }
 }

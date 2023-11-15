@@ -10,7 +10,13 @@ class CartItem extends Equatable {
   final int quantity;
 
   const CartItem(
-      this.id, this.name, this.imageUrl, this.price, this.color, this.quantity);
+    this.id,
+    this.name,
+    this.imageUrl,
+    this.price,
+    this.color,
+    this.quantity,
+  );
 
   CartItem.fromShoe(Shoe shoe)
       : id = shoe.id,
@@ -34,13 +40,14 @@ class CartItem extends Equatable {
     """;
   }
 
-  CartItem copyWith(
-      {int? id,
-      String? name,
-      String? imageUrl,
-      double? price,
-      String? color,
-      int? quantity,}) {
+  CartItem copyWith({
+    int? id,
+    String? name,
+    String? imageUrl,
+    double? price,
+    String? color,
+    int? quantity,
+  }) {
     int newId = id ?? this.id;
     String newName = name ?? this.name;
     String newImageUrl = imageUrl ?? this.imageUrl;
@@ -48,6 +55,7 @@ class CartItem extends Equatable {
     String newColor = color ?? this.color;
     int newQuantity = quantity ?? this.quantity;
 
-    return CartItem(newId, newName, newImageUrl, newPrice, newColor, newQuantity);
+    return CartItem(
+        newId, newName, newImageUrl, newPrice, newColor, newQuantity);
   }
 }

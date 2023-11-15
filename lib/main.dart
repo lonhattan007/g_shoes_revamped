@@ -5,7 +5,6 @@ import 'themes/custom_colorscheme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:g_shoes_revamped/blocs/cart/cart_bloc.dart';
 
-
 void main() {
   // Bloc observer = const CounterObserver();
   runApp(const MyApp());
@@ -57,7 +56,7 @@ class MyApp extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: customColorscheme.black,
-            )
+            ),
           ),
           useMaterial3: true,
         ),
@@ -66,4 +65,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

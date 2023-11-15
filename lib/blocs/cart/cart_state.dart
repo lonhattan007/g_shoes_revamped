@@ -19,7 +19,8 @@ final class CartLoaded extends CartState {
   final double totalPrice;
   final bool isEmpty;
 
-  const CartLoaded({required this.items, required this.totalPrice, required this.isEmpty});
+  const CartLoaded(
+      {required this.items, required this.totalPrice, required this.isEmpty});
 
   @override
   List<Object> get props => [items, totalPrice, isEmpty];

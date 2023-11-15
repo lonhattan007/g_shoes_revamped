@@ -8,7 +8,6 @@ class BackgroundAnimation extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -16,14 +15,14 @@ class BackgroundAnimation extends StatelessWidget {
 
     return Transform.translate(
       offset: Offset(
-          width * 0,
-          height * 0.5,
+        width * 0,
+        height * 0.5,
       ),
       child: Transform.scale(
         scaleX: 3,
         child: Transform(
           alignment: Alignment.center,
-          transform: Matrix4.skewY(- math.pi / 8),
+          transform: Matrix4.skewY(-math.pi / 8),
           // transform: Matrix4.skew(math.pi / 8, -math.pi / 4),
           child: Container(
             decoration: BoxDecoration(
