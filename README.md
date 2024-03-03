@@ -1,78 +1,30 @@
-# g_shoes_revamped
+# React + TypeScript + Vite
 
-Revamped version of the [Gshoes](https://github.com/lonhattan007/gshoes) shopping app for sneaker heads.
-Simple shopping cart demonstration built with Flutter web and BloC.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Installation and Local deployment
+Currently, two official plugins are available:
 
-### Prerequisites:
-- Flutter 3+ and Dart, follow [Flutter's official installation guide](https://docs.flutter.dev/get-started/install)
-- The project is web-based, so it's best to have a Chromium-based browser
-- Clone this repo:
-  ```bash
-  git clone git@github.com:lonhattan007/g_shoes_revamped.git
-  cd g_shoes_revamped
-  ```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Install dependencies:
-```bash
-flutter pub get
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
 ```
 
-### Run the program:
-- Start the application in release mode:
-  ```bash
-  flutter run --release
-  ```
-- Choose your favorite web browser from the terminal
-
-
-## Project structure
-
-This project uses BloC as the state management pattern and it has only one domain module, so the simple structure would be
-
-```
-g_shoes_revamped/
-|__ assets/
-|   |__ fonts/ ............................ - Font ttf files
-|   |__ images/ ........................... - Images and icons
-|__ data/ ................................. - Mock data
-|__ lib/
-|   |__ bloc/ ............................. - BloC-related classes
-|   |__ components/ ....................... - UI components
-|   |__ models/ ........................... - Data models
-|   |__ screens/ .......................... - Screen-level components
-|   |__ themes/ ........................... - Theme configs
-|   |__ utils/ ............................ - Utilities
-|   |__ main.dart ......................... - App entry
-|__ web/
-|__ |__ index.html ........................ - HTML shell for the application
-|__ |__ ...
-|__ pubspec.yaml .......................... - Project config file
-|__ README.md ............................. - Documentation file
-|__ .git/ ................................. - Git-related files
-|__ ... other standard Flutter project files and directories
-```
-
-## Goal checklist
-
-- [ ] Styling
-  - [x] Font (Rubik)
-  - [x] Colors
-  - [x] Images & icons
-  - [x] Layout
-  - [ ] Decorations (May use Canvas, Stack,...) - Working on it
-- [x] Workable
-  - [x] Display correct data
-  - [x] Add item to cart
-  - [x] Remove item from cart
-  - [x] Update items' quantities
-- [x] Meet with tech specs
-  - [x] Framework (Flutter 3+, web platform)
-  - [x] State management (BloC)
-  - [x] README file
-- [ ] Nice to have:
-  - [ ] Animation
-  - [ ] Responsive - Working on it
-  - [ ] Caching - Working on it
-  - [ ] Deployed
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
