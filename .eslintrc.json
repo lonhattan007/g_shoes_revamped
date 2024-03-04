@@ -19,7 +19,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "tsconfigRootDir": ".",
-    "project": ["./tsconfig.json"]
+    "_project": ["./tsconfig.json"]
   },
   // Configuring third-party plugins
   "plugins": ["react", "@typescript-eslint"],

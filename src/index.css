@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: Rubik;
+    src: url('../assets/fonts/rubik/Rubik-Regular.ttf');
+  }
+  @font-face {
+    font-family: Rubik;
+    font-weight: bold;
+    src: url('../assets/fonts/rubik/Rubik-Bold.ttf');
+  }
+  @font-face {
+    font-family: Rubik;
+    font-style: italic;
+    src: url('../assets/fonts/rubik/Rubik-Italic.ttf');
+  }
+}
+
 :root {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: 'rubik';
@@ -24,4 +41,9 @@
   padding: 0;
   margin: 0 auto;
   text-align: center;
+}
+
+#app-content {
+  display: flex;
+  justify-content: space-between;
 }
