@@ -1,6 +1,16 @@
 import Section from '@components/Section';
 
+import { useContext, useEffect } from 'react';
+import { ShoesContext } from './main';
+
 function App() {
+  const shoes = useContext(ShoesContext);
+
+  useEffect(() => {
+    console.log(shoes);
+    console.log(typeof shoes);
+  }, [shoes]);
+
   return (
     <div
       id='app'
@@ -15,9 +25,6 @@ function App() {
 			before:animate-flutter
 			'
     >
-      {/*
-			before:-z-[1]
-		*/}
       <div
         id='app-content'
         className='flex relative flex-col md:flex-row flex-wrap 

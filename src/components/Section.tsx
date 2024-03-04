@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import './Section.css';
 
-function Section(props: { title: string; children: ReactNode }) {
+function Section(props: { title: string; children?: ReactNode }) {
   return (
     <div
       className='section-card 
