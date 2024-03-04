@@ -9,6 +9,9 @@ export default {
       yellow: '#f6c90e',
     },
     extend: {
+      boxShadow: {
+        card: '',
+      },
       keyframes: {
         flutter: {
           '0%, 100%': { transform: 'translateX(-50%) skew(0deg, -8deg)' },
