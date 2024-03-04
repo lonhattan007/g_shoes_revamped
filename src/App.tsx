@@ -1,34 +1,58 @@
-import { useState } from 'react';
-import reactLogo from '@assets/images/react.svg';
-import viteLogo from '@assets/images/vite.svg';
-import './App.css';
+import Section from '@components/Section';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div
+      id='app'
+      className='flex flex-nowrap justify-items-center w-full h-full bg-white before:bg-yellow before:content-[""]
+			before:block before:fixed 
+			before:top-1/2 before:left-1/2 
+			before:w-[300%] before:h-full 
+			before:-translate-x-[50%] before:-skew-y-[8deg]
+			before:rounded-[100%]
+			before:animate-flutter
+			'
+    >
+      {/*
+			before:-z-[1]
+			*/}
+      <div
+        id='app-content'
+        className='relative flex-wrap justify-between items-center my-0 mx-auto text-black bg-transparent z-1 w-50'
+      >
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci deserunt earum
+          quia voluptas? A unde magnam esse blanditiis aliquid iusto officiis, architecto laboriosam
+          expedita repudiandae aut delectus optio consequatur.
         </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci deserunt earum
+          quia voluptas? A unde magnam esse blanditiis aliquid iusto officiis, architecto laboriosam
+          expedita repudiandae aut delectus optio consequatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci deserunt earum
+          quia voluptas? A unde magnam esse blanditiis aliquid iusto officiis, architecto laboriosam
+          expedita repudiandae aut delectus optio consequatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci deserunt earum
+          quia voluptas? A unde magnam esse blanditiis aliquid iusto officiis, architecto laboriosam
+          expedita repudiandae aut delectus optio consequatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci deserunt earum
+          quia voluptas? A unde magnam esse blanditiis aliquid iusto officiis, architecto laboriosam
+          expedita repudiandae aut delectus optio consequatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci deserunt earum
+          quia voluptas? A unde magnam esse blanditiis aliquid iusto officiis, architecto laboriosam
+          expedita repudiandae aut delectus optio consequatur.
+        </p>
+        <Section />
       </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 

@@ -23,6 +23,8 @@
     /* Path resolve */
     "paths": {
       "@assets/*": ["./assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@models/*": ["./src/models/*"],
       "@utils/*": ["./src/urils/*"]
     }
   },

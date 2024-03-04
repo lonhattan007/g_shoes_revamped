@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import * as path from 'path';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,6 +9,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': path.resolve('./assets'),
+      '@components': path.resolve('./src/components'),
+      '@models': path.resolve('./src/models'),
+      '@utils': path.resolve('./src/utils'),
     },
   },
   test: {
