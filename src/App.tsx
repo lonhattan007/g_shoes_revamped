@@ -1,15 +1,11 @@
+import { useContext } from 'react';
 import Section from '@components/Section';
-
-import { useContext, useEffect } from 'react';
-import { ShoesContext } from './main';
+import ShoeInfo from '@components/ShoeInfo';
+import Shoe from '@models/shoe.model';
+import StockContext from '@stores/StockContext';
 
 function App() {
-  const shoes = useContext(ShoesContext);
-
-  useEffect(() => {
-    console.log(shoes);
-    console.log(typeof shoes);
-  }, [shoes]);
+  const shoes: Array<Shoe> = useContext(StockContext);
 
   return (
     <div
@@ -32,8 +28,20 @@ function App() {
 				py-0 my-0 mx-auto h-[100vh] px-[20px] max-w-[760px]'
       >
         {/* justify-between */}
-        <Section title='Our Products' />
-        <Section title='Your cart' />
+        <Section id='store-section' title='Our Products'>
+          <div className='overflow-scroll'>
+            {shoes.map((shoe, index) => (
+              <ShoeInfo
+                key={'shoe_' + shoe.id}
+                shoe={shoe}
+                className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
+              />
+            ))}
+          </div>
+        </Section>
+        <Section id='cart-section' title='Your cart'>
+          <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
+        </Section>
       </div>
     </div>
   );

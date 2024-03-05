@@ -7,11 +7,13 @@
     font-family: Rubik;
     src: url('../assets/fonts/rubik/Rubik-Regular.ttf');
   }
+
   @font-face {
     font-family: Rubik;
     font-weight: bold;
     src: url('../assets/fonts/rubik/Rubik-Bold.ttf');
   }
+
   @font-face {
     font-family: Rubik;
     font-style: italic;
@@ -39,4 +41,9 @@
   padding: 0;
   margin: 0 auto;
   text-align: center;
+}
+
+* {
+  scrollbar-color: unset;
+  scrollbar-width: unset im !important;
 }

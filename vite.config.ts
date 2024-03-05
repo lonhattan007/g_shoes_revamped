@@ -12,6 +12,7 @@ export default defineConfig({
       '@data': path.resolve('./data'),
       '@components': path.resolve('./src/components'),
       '@models': path.resolve('./src/models'),
+      '@stores': path.resolve('./src/stores'),
       '@utils': path.resolve('./src/utils'),
     },
   },
