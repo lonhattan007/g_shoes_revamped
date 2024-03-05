@@ -9,8 +9,10 @@ export default {
       yellow: '#f6c90e',
     },
     extend: {
-      boxShadow: {
-        card: '',
+      screens: {
+        tablet: '800px',
+        laptop: '1024px',
+        desktop: '1290px',
       },
       keyframes: {
         flutter: {
