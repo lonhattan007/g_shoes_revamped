@@ -13,7 +13,9 @@ class Cart {
     console.log(item.id);
   }
 
-  removeItem(item: CartItem): void {}
+  removeItem(item: CartItem): void {
+    console.log(item.id);
+  }
 }
 
 export default Cart;

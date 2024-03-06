@@ -30,7 +30,7 @@
       "@utils/*": ["./src/urils/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "tests", "vite.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

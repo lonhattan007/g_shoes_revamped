@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import Section from '@components/Section';
 import ShoeInfo from '@components/ShoeInfo';
-import Shoe from '@models/shoe.model';
-import StockContext from '@stores/StockContext';
+// import Shoe from '@models/shoe.model';
+import { OGStockContext } from '@stores/StockContext';
 
 function App() {
-  const shoes: Array<Shoe> = useContext(StockContext);
+  // const shoes: Array<Shoe> = useContext(StockContext);
+  const stock = useContext(OGStockContext);
 
   return (
     <div
@@ -30,10 +31,17 @@ function App() {
         {/* justify-between */}
         <Section id='store-section' title='Our Products'>
           <div className='overflow-scroll'>
-            {shoes.map((shoe, index) => (
+            {/*shoes.map((shoe, index) => (
+							<ShoeInfo
+								key={'shoe_' + shoe.id}
+								shoe={shoe}
+								className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
+							/>
+						))*/}
+            {Object.keys(stock).map((key, index) => (
               <ShoeInfo
-                key={'shoe_' + shoe.id}
-                shoe={shoe}
+                key={'shoe_' + stock[key].id}
+                shoe={stock[key]}
                 className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
               />
             ))}

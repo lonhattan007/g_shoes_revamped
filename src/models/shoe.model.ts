@@ -1,9 +1,8 @@
-class Shoe {
-  id: number;
+import Item from './item.model';
+
+class Shoe extends Item {
   image: string;
-  name: string;
   description: string;
-  price: number;
   color: string;
 
   constructor(
@@ -14,11 +13,9 @@ class Shoe {
     price: number,
     color: string,
   ) {
-    this.id = id;
+    super(id, name, price);
     this.image = image;
-    this.name = name;
     this.description = description;
-    this.price = price;
     this.color = color;
   }
 
