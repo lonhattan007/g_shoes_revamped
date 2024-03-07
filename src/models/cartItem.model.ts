@@ -1,9 +1,13 @@
+import Item from './item.model';
+
 class CartItem {
   id: number;
+  detail: Item;
   quantity: number;
 
-  constructor(id: number) {
-    this.id = id;
+  constructor(item: Item) {
+    this.id = item.id;
+    this.detail = item;
     this.quantity = 0;
   }
 

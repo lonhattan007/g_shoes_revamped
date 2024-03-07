@@ -1,12 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Section from '@components/Section';
 import ShoeInfo from '@components/ShoeInfo';
 // import Shoe from '@models/shoe.model';
-import { OGStockContext } from '@stores/StockContext';
+import { StockContext } from '@stores/StockContext';
+import useStockStore from '@stores/StockStore';
 
 function App() {
-  // const shoes: Array<Shoe> = useContext(StockContext);
-  const stock = useContext(OGStockContext);
+  const stock = useContext(StockContext);
+
+  const myStock = useStockStore((state) => state.stock);
+  const updateStock = useStockStore((state) => state.update);
+
+  useEffect(() => {
+    updateStock(stock);
+    console.log(myStock);
+  }, [myStock]);
 
   return (
     <div
@@ -31,23 +39,16 @@ function App() {
         {/* justify-between */}
         <Section id='store-section' title='Our Products'>
           <div className='overflow-scroll'>
-            {/*shoes.map((shoe, index) => (
-							<ShoeInfo
-								key={'shoe_' + shoe.id}
-								shoe={shoe}
-								className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
-							/>
-						))*/}
-            {Object.keys(stock).map((key, index) => (
+            {Array.from(myStock, ([_, value]) => value).map((shoe, index) => (
               <ShoeInfo
-                key={'shoe_' + stock[key].id}
-                shoe={stock[key]}
+                key={'shoe_' + shoe.id}
+                shoe={shoe}
                 className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
               />
             ))}
           </div>
         </Section>
-        <Section id='cart-section' title='Your cart'>
+        <Section id='cart-section' title='Your cart' subTitle='$0.00'>
           <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
         </Section>
       </div>

@@ -10,11 +10,31 @@ class Cart {
   }
 
   addItem(item: CartItem): void {
-    console.log(item.id);
+    const id = item.id;
+
+    if (this.items.has(id)) {
+      this.items.get(id)?.increaseQuantity();
+    } else {
+      this.items.set(id, item);
+    }
+
+    this.totalPrice += item.detail.price;
   }
 
   removeItem(item: CartItem): void {
-    console.log(item.id);
+    const id = item.id;
+
+    if (this.items.has(id)) {
+      this.items.get(id)?.decreaseQuantity();
+
+      if (this.items.get(id)?.quantity == 0) {
+        this.items.delete(id);
+      }
+
+      this.totalPrice -= item.detail.price;
+    } else {
+      console.error(`Item ${id} doesn't exist!`);
+    }
   }
 }
 

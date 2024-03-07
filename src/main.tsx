@@ -4,23 +4,17 @@ import App from './App.tsx';
 import './index.css';
 import { shoes } from '@data/shoes.json';
 import Shoe from '@models/shoe.model.ts';
-import { StockContext, OGStockContext } from '@stores/StockContext';
-import CartContext from '@stores/CartContext';
+import { StockContext } from '@stores/StockContext';
 
-const stock: object = shoes;
-const shoesInStock: Array<Shoe> = [];
-shoes.forEach((shoe) => {
-  shoesInStock.push(Shoe.fromJson(shoe));
+const shoesInStock: Map<number, Shoe> = new Map();
+shoes.forEach((shoe: Shoe) => {
+  shoesInStock.set(shoe.id, Shoe.fromJson(shoe));
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <OGStockContext.Provider value={stock}>
-      <StockContext.Provider value={shoesInStock}>
-        <CartContext.Provider value={[]}>
-          <App />
-        </CartContext.Provider>
-      </StockContext.Provider>
-    </OGStockContext.Provider>
+    <StockContext.Provider value={shoesInStock}>
+      <App />
+    </StockContext.Provider>
   </React.StrictMode>,
 );

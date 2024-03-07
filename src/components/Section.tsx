@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import './Section.css';
 
-function Section(props: { title: string; id?: string; children?: ReactNode }) {
+function Section(props: { title?: string; subTitle?: string; id?: string; children?: ReactNode }) {
   return (
     <div
       className='section-card
@@ -25,7 +25,10 @@ function Section(props: { title: string; id?: string; children?: ReactNode }) {
         <div className='mx-0 my-[12px] relative z-10'>
           <img src='assets/images/nike.png' alt='Nike Logo' className='w-[50px]' />
         </div>
-        <div className='text-[24px] font-bold z-20'>{props.title}</div>
+        <div className='text-[24px] font-bold z-20 flex content-between'>
+          <p className='flex-1'>{props.title}</p>
+          <p className='flex-1 text-right'>{props.subTitle}</p>
+        </div>
         {props.children}
       </div>
     </div>
