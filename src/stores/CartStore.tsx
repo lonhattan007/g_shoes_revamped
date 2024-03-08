@@ -1,21 +1,26 @@
-import Cart from '@models/cart.model';
 import CartItem from '@models/cartItem.model';
+import Item from '@models/item.model';
 import { create } from 'zustand';
 
 interface CartState {
-  cart: Cart;
-  addItem: (item: CartItem) => void;
-  removeItem: (item: CartItem) => void;
+  items: Map<number, CartItem>;
+  totalPrice: number;
+  addItem: (item: Item) => void;
+  removeItem: (item: Item) => void;
 }
 
-const useCart = create<CartState>()((set) => {
-  cart: new Cart();
-  addItem: (item: CartItem) => {
+// TODO: break down cart state
+const useCart = create<CartState>()((set) => ({
+  items: new Map(),
+  totalPrice: 0,
+  addItem: (item: Item) => {
     console.log(item.id);
-  };
-  removeItem: (item: CartItem) => {
+    set((state) => ({ totalPrice: state.totalPrice + item.price }));
+  },
+  removeItem: (item: Item) => {
     console.log(item.id);
-  };
-});
+    set((state) => ({ totalPrice: Math.abs(state.totalPrice - item.price) }));
+  },
+}));
 
 export default useCart;

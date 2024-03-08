@@ -4,12 +4,15 @@ import ShoeInfo from '@components/ShoeInfo';
 // import Shoe from '@models/shoe.model';
 import { StockContext } from '@stores/StockContext';
 import useStockStore from '@stores/StockStore';
+import useCart from '@stores/CartStore';
 
 function App() {
   const stock = useContext(StockContext);
 
   const myStock = useStockStore((state) => state.stock);
   const updateStock = useStockStore((state) => state.update);
+
+  const cartTotalPrice = useCart((state) => state.totalPrice);
 
   useEffect(() => {
     updateStock(stock);
@@ -48,7 +51,11 @@ function App() {
             ))}
           </div>
         </Section>
-        <Section id='cart-section' title='Your cart' subTitle='$0.00'>
+        <Section
+          id='cart-section'
+          title='Your cart'
+          subTitle={cartTotalPrice === 0 ? '' : '$' + cartTotalPrice.toFixed(2)}
+        >
           <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
         </Section>
       </div>

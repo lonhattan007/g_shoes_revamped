@@ -1,13 +1,17 @@
 import Shoe from '@models/shoe.model';
 
 import './ShoeInfo.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import useCart from '@stores/CartStore';
 
 function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
   const [inCart, setInCart] = useState(false);
 
-  const toggleInCart = () => {
-    setInCart(!inCart);
+  const addItem = useCart((state) => state.addItem);
+
+  const handleAddToCart = (e: React.FormEvent) => {
+    e.preventDefault();
+    setInCart(true), addItem(props.shoe);
   };
 
   return (
@@ -30,6 +34,7 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
         </div>
         <div className='flex justify-between items-center'>
           <div className='font-bold text-[18px]'>${props.shoe.price}</div>
+          {/* TODO: Disable when incart */}
           <div
             className='flex relative box-border
 						bg-yellow font-bold text-[14px]
@@ -37,7 +42,7 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
 						items-center
 						rounded-[100px]
 						'
-            onClick={toggleInCart}
+            onClick={handleAddToCart}
           >
             {inCart ? (
               <div className='flex absolute items-center justify-center w-[16px] h-[16px]'>
