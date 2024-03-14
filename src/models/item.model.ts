@@ -1,13 +1,10 @@
-abstract class Item {
+interface Item {
   id: number;
   name: string;
+  imageUrl: string;
+  description: string;
   price: number;
-
-  constructor(id: number, name: string, price: number) {
-    this.id = id;
-    this.name = name;
-    this.price = price;
-  }
+  color?: string;
 }
 
 export default Item;

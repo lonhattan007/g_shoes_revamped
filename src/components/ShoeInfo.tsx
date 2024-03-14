@@ -5,25 +5,26 @@ import React, { useState } from 'react';
 import useCart from '@stores/CartStore';
 
 function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
-  const [inCart, setInCart] = useState(false);
+  const cartItems = useCart((state) => state.items);
+  const [inCart, setInCart] = useState(cartItems.has(props.shoe.id));
 
   const addItem = useCart((state) => state.addItem);
 
   const handleAddToCart = (e: React.FormEvent) => {
     e.preventDefault();
-    setInCart(true), addItem(props.shoe);
+    setInCart(true);
+    addItem(props.shoe);
   };
 
   return (
     <>
       <div className={'flex-col' + ' ' + props.className}>
         <div
-          className={
-            'z-10 relative flex h-[380px] rounded-[30px] items-center bg-' + props.shoe.color
-          }
+          className={'z-10 relative flex h-[380px] rounded-[30px] items-center'}
+          style={{ background: props.shoe.color || '#eee' }}
         >
           <img
-            src={props.shoe.image}
+            src={props.shoe.imageUrl}
             alt=''
             className='product-image block w-[100%] rotate-[-24deg] ml-[-16px] bg-none'
           />
@@ -42,7 +43,6 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
 						items-center
 						rounded-[100px]
 						'
-            onClick={handleAddToCart}
           >
             {inCart ? (
               <div className='flex absolute items-center justify-center w-[16px] h-[16px]'>
@@ -53,7 +53,9 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
                 />
               </div>
             ) : (
-              'ADD TO CART'.toUpperCase()
+              <button type='button' onClick={handleAddToCart}>
+                {'ADD TO CART'.toUpperCase()}
+              </button>
             )}
           </div>
         </div>

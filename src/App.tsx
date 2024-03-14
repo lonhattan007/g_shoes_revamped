@@ -5,6 +5,7 @@ import ShoeInfo from '@components/ShoeInfo';
 import { StockContext } from '@stores/StockContext';
 import useStockStore from '@stores/StockStore';
 import useCart from '@stores/CartStore';
+import ItemInfo from '@components/ItemInfo';
 
 function App() {
   const stock = useContext(StockContext);
@@ -12,12 +13,17 @@ function App() {
   const myStock = useStockStore((state) => state.stock);
   const updateStock = useStockStore((state) => state.update);
 
+  const cartItems = useCart((state) => state.items);
   const cartTotalPrice = useCart((state) => state.totalPrice);
 
   useEffect(() => {
     updateStock(stock);
     console.log(myStock);
   }, [myStock]);
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
 
   return (
     <div
@@ -56,7 +62,19 @@ function App() {
           title='Your cart'
           subTitle={cartTotalPrice === 0 ? '' : '$' + cartTotalPrice.toFixed(2)}
         >
-          <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
+          <div className='cart-section-body relative overflow-y-scroll'>
+            {cartItems.size == 0 ? (
+              <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
+            ) : (
+              Array.from(cartItems, ([_, value]) => value).map((cartItem, index) => (
+                <ItemInfo
+                  key={'item_' + cartItem.id}
+                  item={cartItem}
+                  className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
+                />
+              ))
+            )}
+          </div>
         </Section>
       </div>
     </div>

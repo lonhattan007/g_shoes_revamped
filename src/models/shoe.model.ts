@@ -1,28 +1,33 @@
 import Item from './item.model';
 
-class Shoe extends Item {
-  image: string;
+class Shoe implements Item {
+  id: number;
+  name: string;
+  imageUrl: string;
   description: string;
+  price: number;
   color: string;
 
   constructor(
     id: number,
-    image: string,
+    imageUrl: string,
     name: string,
     description: string,
     price: number,
     color: string,
   ) {
-    super(id, name, price);
-    this.image = image;
+    this.id = id;
+    this.name = name;
+    this.imageUrl = imageUrl;
     this.description = description;
+    this.price = price;
     this.color = color;
   }
 
   static fromJson(props: {
     id: number;
-    image: string;
     name: string;
+    image: string;
     description: string;
     price: number;
     color: string;

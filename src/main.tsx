@@ -5,6 +5,9 @@ import './index.css';
 import { shoes } from '@data/shoes.json';
 import Shoe from '@models/shoe.model.ts';
 import { StockContext } from '@stores/StockContext';
+import { enableMapSet } from 'immer';
+
+enableMapSet();
 
 const shoesInStock: Map<number, Shoe> = new Map();
 shoes.forEach((shoe: Shoe) => {

@@ -1,0 +1,7 @@
+.item-image {
+  filter: drop-shadow(0 30px 20px rgba(0, 0, 0, 0.2));
+}
+
+.delete-button:hover {
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+}
