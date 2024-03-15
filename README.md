@@ -62,21 +62,22 @@ g_shoes_revamped/
   - [x] Font (Rubik)
   - [x] Colors
   - [x] Images & icons
-  - [ ] Layout
+  - [x] Layout
   - [ ] Decorations (May use Canvas, Stack,...) - Working on it
-- [ ] Workable
-  - [ ] Display correct data
-  - [ ] Add item to cart
-  - [ ] Remove item from cart
-  - [ ] Update items' quantities
-- [ ] Meet with tech specs
+  - [ ] Animations - Working on it
+- [x] Workable
+  - [x] Display correct data
+  - [x] Add item to cart
+  - [x] Remove item from cart
+  - [x] Update items' quantities
+- [x] Meet with tech specs
   - [x] Framework (React.js + Vite)
-  - [ ] State management (Zustand/useContext)
+  - [x] State management (Zustand/useContext)
   - [x] README file
 - [ ] Nice to have:
   - [x] Animation
-  - [ ] Responsive - Working on it
-  - [ ] Caching - Working on it
+  - [x] Responsive
+  - [x] Caching - Working on it
   - [ ] Deployed
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
