@@ -25,9 +25,10 @@
       "@assets/*": ["./assets/*"],
       "@data/": ["./data/*"],
       "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"],
       "@models/*": ["./src/models/*"],
       "@stores/*": ["./src/stores/*"],
-      "@utils/*": ["./src/urils/*"]
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src", "tests", "vite.config.ts"],

@@ -6,6 +6,8 @@ import { StockContext } from '@stores/StockContext';
 import useStockStore from '@stores/StockStore';
 import useCart from '@stores/CartStore';
 import ItemInfo from '@components/ItemInfo';
+import { saveMapToLocalStorage } from '@utils/mapToLocalStorage';
+import { LS_CART_ITEMS } from './constants/localStorageKeys';
 
 function App() {
   const stock = useContext(StockContext);
@@ -19,6 +21,10 @@ function App() {
   useEffect(() => {
     updateStock(stock);
   }, [myStock]);
+
+  useEffect(() => {
+    saveMapToLocalStorage(cartItems, LS_CART_ITEMS);
+  }, [cartItems]);
 
   return (
     <div

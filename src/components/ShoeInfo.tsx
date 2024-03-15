@@ -1,5 +1,4 @@
 import Shoe from '@models/shoe.model';
-
 import './ShoeInfo.css';
 import React, { useEffect, useState } from 'react';
 import useCart from '@stores/CartStore';

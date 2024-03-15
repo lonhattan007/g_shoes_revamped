@@ -2,6 +2,8 @@ import CartItem from '@models/cartItem.model';
 import Item from '@models/item.model';
 import { create } from 'zustand';
 import { produce } from 'immer';
+import { loadMapFromLocalStorage } from '@utils/mapToLocalStorage';
+import { LS_CART_ITEMS } from '@constants/localStorageKeys';
 
 type CartState = {
   items: Map<number, CartItem>;
@@ -14,10 +16,18 @@ type CartActions = {
   deleteItem: (item: Item) => void;
 };
 
-// TODO: break down cart state
+const initialCartItems = loadMapFromLocalStorage(LS_CART_ITEMS) || new Map<number, CartItem>();
+
+const initialState: CartState = {
+  items: initialCartItems,
+  totalPrice: Array.from(initialCartItems.values()).reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  ),
+};
+
 const useCart = create<CartState & CartActions>()((set) => ({
-  items: new Map<number, CartItem>(),
-  totalPrice: 0,
+  ...initialState,
   addItem: (item: Item) => {
     set(
       produce((cartState) => {

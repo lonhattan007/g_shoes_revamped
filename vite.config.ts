@@ -11,6 +11,7 @@ export default defineConfig({
       '@assets': path.resolve('./assets'),
       '@data': path.resolve('./data'),
       '@components': path.resolve('./src/components'),
+      '@constants': path.resolve('./src/constants'),
       '@models': path.resolve('./src/models'),
       '@stores': path.resolve('./src/stores'),
       '@utils': path.resolve('./src/utils'),
