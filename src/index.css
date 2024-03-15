@@ -19,6 +19,18 @@
     font-style: italic;
     src: url('../assets/fonts/rubik/Rubik-Italic.ttf');
   }
+
+  * {
+    scrollbar-color: unset;
+    scrollbar-width: unset !important;
+  }
+}
+
+@layer components {
+  * {
+    scrollbar-color: unset;
+    scrollbar-width: unset !important;
+  }
 }
 
 :root {
@@ -28,6 +40,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
+
+  background: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -46,4 +60,8 @@
 * {
   scrollbar-color: unset;
   scrollbar-width: unset !important;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }

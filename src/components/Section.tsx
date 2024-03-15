@@ -1,17 +1,25 @@
 import { ReactNode } from 'react';
 import './Section.css';
 
-function Section(props: { title?: string; subTitle?: string; id?: string; children?: ReactNode }) {
+function Section(props: {
+  title?: string;
+  subTitle?: string;
+  id?: string;
+  children?: ReactNode;
+  className?: string;
+}) {
   return (
     <div
-      className='section-card
-			text-left
-			overflow-hidden relative flex-col
-			py-0 px-[28px] mb-[20px]
-			w-[360px] h-[100vh] rounded-[30px]
-			bg-white box-border
-			z-0
-			'
+      className={
+        `section-card
+				text-left
+				relative flex-col
+				overflow-x-hidden overflow-y-auto
+				py-0 px-[28px] mb-[20px]
+				w-[360px] h-[600px] rounded-[30px]
+				bg-white box-border
+				z-0 ` + (props.className || '')
+      }
     >
       <div
         className='section-content flex-col
@@ -27,9 +35,9 @@ function Section(props: { title?: string; subTitle?: string; id?: string; childr
         </div>
         <div className='text-[24px] font-bold z-20 relative my-[16px] flex content-between'>
           <p className='flex-1'>{props.title}</p>
-          <p className='flex-1 text-right'>{props.subTitle}</p>
+          {props.subTitle && <p className='flex-1 text-right'>{props.subTitle}</p>}
         </div>
-        {props.children}
+        <div className='section-body relative'>{props.children}</div>
       </div>
     </div>
   );

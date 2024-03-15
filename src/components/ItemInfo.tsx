@@ -7,17 +7,17 @@ const ItemInfo = (props: { className?: string; key?: string; item: CartItem }) =
   const removeItem = useCart((state) => state.removeItem);
   const deleteItem = useCart((state) => state.deleteItem);
 
-  const handleAddItem = (e) => {
+  const handleAddItem = (e: React.FormEvent) => {
     e.preventDefault();
     addItem(props.item);
   };
 
-  const handleRemoveItem = (e) => {
+  const handleRemoveItem = (e: React.FormEvent) => {
     e.preventDefault();
     removeItem(props.item);
   };
 
-  const handleDeleteItem = (e) => {
+  const handleDeleteItem = (e: React.FormEvent) => {
     e.preventDefault();
     deleteItem(props.item);
   };

@@ -28,8 +28,10 @@ function App() {
   return (
     <div
       id='app'
-      className='justify-items-center w-full h-full bg-white 
-			text-black
+      className='max-w-[760px] h-[100vh]
+			flex flex-row flex-wrap 
+			items-center justify-between justify-items-center
+			py-0 my-0 mx-auto px-[20px] text-black
 			before:bg-yellow before:content-[""]
 			before:block before:fixed 
 			before:top-1/2 before:left-1/2 
@@ -39,44 +41,29 @@ function App() {
 			before:animate-flutter
 			'
     >
-      <div
-        id='app-content'
-        className='flex relative flex-col md:flex-row flex-wrap 
-				items-center 
-				py-0 my-0 mx-auto h-[100vh] px-[20px] max-w-[760px]'
+      <Section id='store-section' title='Our Products' className='flex-1'>
+        {Array.from(myStock, ([_, value]) => value).map((shoe, index) => (
+          <ShoeInfo
+            key={'shoe_' + shoe.id}
+            shoe={shoe}
+            className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
+          />
+        ))}
+      </Section>
+      <Section
+        id='cart-section'
+        title='Your cart'
+        subTitle={cartTotalPrice === 0 ? '' : '$' + cartTotalPrice.toFixed(2)}
+        className='flex-1'
       >
-        {/* justify-between */}
-        <Section id='store-section' title='Our Products'>
-          <div className='overflow-scroll'>
-            {Array.from(myStock, ([_, value]) => value).map((shoe, index) => (
-              <ShoeInfo
-                key={'shoe_' + shoe.id}
-                shoe={shoe}
-                className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
-              />
-            ))}
-          </div>
-        </Section>
-        <Section
-          id='cart-section'
-          title='Your cart'
-          subTitle={cartTotalPrice === 0 ? '' : '$' + cartTotalPrice.toFixed(2)}
-        >
-          <div className='cart-section-body relative overflow-y-scroll'>
-            {cartItems.size == 0 ? (
-              <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
-            ) : (
-              Array.from(cartItems, ([_, value]) => value).map((cartItem, index) => (
-                <ItemInfo
-                  key={'item_' + cartItem.id}
-                  item={cartItem}
-                  className={index == 0 ? 'mb-[40px]' : 'my-[40px]'}
-                />
-              ))
-            )}
-          </div>
-        </Section>
-      </div>
+        {cartItems.size == 0 ? (
+          <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
+        ) : (
+          Array.from(cartItems, ([_, value]) => value).map((cartItem, _) => (
+            <ItemInfo key={'item_' + cartItem.id} item={cartItem} />
+          ))
+        )}
+      </Section>
     </div>
   );
 }
