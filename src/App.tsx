@@ -18,12 +18,7 @@ function App() {
 
   useEffect(() => {
     updateStock(stock);
-    console.log(myStock);
   }, [myStock]);
-
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
 
   return (
     <div

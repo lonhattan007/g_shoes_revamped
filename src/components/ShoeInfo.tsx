@@ -1,7 +1,7 @@
 import Shoe from '@models/shoe.model';
 
 import './ShoeInfo.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useCart from '@stores/CartStore';
 
 function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
@@ -16,9 +16,13 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
     addItem(props.shoe);
   };
 
+  useEffect(() => {
+    setInCart(cartItems.has(props.shoe.id));
+  }, [cartItems]);
+
   return (
     <>
-      <div className={'flex-col' + ' ' + props.className}>
+      <div className={'flex-col ' + (props.className || '')}>
         <div
           className={'z-10 relative flex h-[380px] rounded-[30px] items-center'}
           style={{ background: props.shoe.color || '#eee' }}
@@ -35,7 +39,6 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
         </div>
         <div className='flex justify-between items-center'>
           <div className='font-bold text-[18px]'>${props.shoe.price}</div>
-          {/* TODO: Disable when incart */}
           <div
             className='flex relative box-border
 						bg-yellow font-bold text-[14px]
