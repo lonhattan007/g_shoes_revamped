@@ -48,7 +48,7 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
 						'
           >
             {inCart ? (
-              <div className='flex absolute items-center justify-center w-[16px] h-[16px]'>
+              <div className='product-button flex absolute items-center justify-center w-[16px] h-[16px]'>
                 <img
                   src='assets/images/check.png'
                   alt=''
@@ -56,7 +56,7 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
                 />
               </div>
             ) : (
-              <button type='button' onClick={handleAddToCart}>
+              <button className='product-button' type='button' onClick={handleAddToCart}>
                 {'ADD TO CART'.toUpperCase()}
               </button>
             )}

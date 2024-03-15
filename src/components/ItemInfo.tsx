@@ -24,20 +24,22 @@ const ItemInfo = (props: { className?: string; key?: string; item: CartItem }) =
 
   return (
     <div className='flex flex-row py-[20px]'>
-      <div className='flex-0'>
+      <div className='flex-grow-0 flex-shrink'>
         <div
-          className='w-[90px] h-[90px] rounded-[100%] mr-[34px]'
+          className='w-[90px] h-[90px] rounded-[100%] mr-[9px]'
           style={{ background: props.item.color || '#eee' }}
         >
-          <img
-            className='item-image block w-[140%] rotate-[-28deg] translate-y-[-40px]'
-            src={props.item.imageUrl}
-            alt=''
-          />
+          <div>
+            <img
+              className='item-image block max-w-[140%] w-[140%] rotate-[-28deg] translate-y-[-35px] -translate-x-5'
+              src={props.item.imageUrl}
+              alt=''
+            />
+          </div>
         </div>
       </div>
       <div className='flex-1 flex-col '>
-        <p className='text-[14px] font-bold mb-[10px]'>{props.item.name}</p>
+        <p className='text-[14px] font-bold leading-[1.5] mb-[10px]'>{props.item.name}</p>
         <p className='text-[20px] font-bold mb-[16px]'>${props.item.price}</p>
         <div className='flex flex-row justify-between'>
           <div className='flex-1 flex items-center justify-start'>

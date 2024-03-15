@@ -23,9 +23,9 @@ function App() {
   return (
     <div
       id='app'
-      className='max-w-[760px] h-[100vh]
-			flex flex-row flex-wrap 
-			items-center justify-between justify-items-center
+      className='max-w-[800px] h-[100vh] relative
+			flex 
+			items-center justify-between
 			py-0 my-0 mx-auto px-[20px] text-black
 			before:bg-yellow before:content-[""]
 			before:block before:fixed 
@@ -36,7 +36,7 @@ function App() {
 			before:animate-flutter
 			'
     >
-      <Section id='store-section' title='Our Products' className='flex-1'>
+      <Section id='store-section' title='Our Products'>
         {Array.from(myStock, ([_, value]) => value).map((shoe, index) => (
           <ShoeInfo
             key={'shoe_' + shoe.id}
@@ -45,12 +45,7 @@ function App() {
           />
         ))}
       </Section>
-      <Section
-        id='cart-section'
-        title='Your cart'
-        subTitle={cartTotalPrice === 0 ? '' : '$' + cartTotalPrice.toFixed(2)}
-        className='flex-1'
-      >
+      <Section id='cart-section' title='Your cart' subTitle={'$' + cartTotalPrice.toFixed(2)}>
         {cartItems.size == 0 ? (
           <p className='text-black text-[14px] my-[14px]'>Your cart is empty.</p>
         ) : (
