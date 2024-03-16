@@ -35,4 +35,3 @@ class BackgroundAnimation extends StatelessWidget {
     );
   }
 }
-

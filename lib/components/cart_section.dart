@@ -67,4 +67,3 @@ class CartSection extends StatelessWidget {
     );
   }
 }
-

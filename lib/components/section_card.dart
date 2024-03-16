@@ -73,4 +73,3 @@ class SectionCard extends StatelessWidget {
     );
   }
 }
-
