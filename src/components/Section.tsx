@@ -33,7 +33,7 @@ function Section(props: {
         <p className='flex-1'>{props.title}</p>
         {props.subTitle && <p className='flex-1 text-right'>{props.subTitle}</p>}
       </div>
-      <div className='section-body relative h-[calc(100%-98px)] overflow-y-scroll'>
+      <div className='section-body relative h-[calc(100%-98px)] overflow-x-clip overflow-y-scroll'>
         {props.children}
       </div>
     </div>
