@@ -19,6 +19,7 @@ The main branch is built with my favorite stack: React.js, Vite, Zustand, and Ta
       black: '#303841',
       grey: '#777777',
       yellow: '#f6c90e',
+      yellow-dark: '#f8d43f',
     },
   ```
 
