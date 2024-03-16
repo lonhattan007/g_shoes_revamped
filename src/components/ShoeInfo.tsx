@@ -1,4 +1,5 @@
 import Shoe from '@models/shoe.model';
+import checkLogo from '@assets/images/check.png';
 import './ShoeInfo.css';
 import React, { useEffect, useState } from 'react';
 import useCart from '@stores/CartStore';
@@ -27,7 +28,7 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
           style={{ background: props.shoe.color || '#eee' }}
         >
           <img
-            src={props.shoe.imageUrl}
+            src={props.shoe.image}
             alt=''
             className='product-image block w-[100%] rotate-[-24deg] ml-[-16px] bg-none'
           />
@@ -48,11 +49,7 @@ function ShoeInfo(props: { className?: string; key?: string; shoe: Shoe }) {
           >
             {inCart ? (
               <div className='product-button flex absolute items-center justify-center w-[16px] h-[16px]'>
-                <img
-                  src='assets/images/check.png'
-                  alt=''
-                  className='w-[100%] h-[100%] absolute left-[-25%] '
-                />
+                <img src={checkLogo} alt='' className='w-[100%] h-[100%] absolute left-[-25%] ' />
               </div>
             ) : (
               <button className='product-button' type='button' onClick={handleAddToCart}>

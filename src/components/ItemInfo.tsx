@@ -1,4 +1,5 @@
 import CartItem from '@models/cartItem.model';
+import trashLogo from '@assets/images/trash.png';
 import useCart from '@stores/CartStore';
 import './ItemInfo.css';
 
@@ -32,7 +33,7 @@ const ItemInfo = (props: { className?: string; key?: string; item: CartItem }) =
           <div>
             <img
               className='item-image block max-w-[140%] w-[140%] rotate-[-28deg] translate-y-[-35px] -translate-x-5'
-              src={props.item.imageUrl}
+              src={props.item.image}
               alt=''
             />
           </div>
@@ -59,7 +60,7 @@ const ItemInfo = (props: { className?: string; key?: string; item: CartItem }) =
           </div>
           <div className='delete-button flex bg-yellow hover:bg-[#f8d43f] w-[28px] h-[28px] rounded-[100%] items-center justify-center'>
             <button onClick={handleDeleteItem}>
-              <img className='w-[16px] h-[16px]' src='assets/images/trash.png' alt='' />
+              <img className='w-[16px] h-[16px]' src={trashLogo} alt='' />
             </button>
           </div>
         </div>

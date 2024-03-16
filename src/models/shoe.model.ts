@@ -2,8 +2,8 @@ import Item from './item.model';
 
 class Shoe implements Item {
   id: number;
+  image: string;
   name: string;
-  imageUrl: string;
   description: string;
   price: number;
   color: string;
@@ -18,22 +18,24 @@ class Shoe implements Item {
   ) {
     this.id = id;
     this.name = name;
-    this.imageUrl = imageUrl;
+    this.image = imageUrl;
     this.description = description;
     this.price = price;
     this.color = color;
   }
 
-  static fromJson(props: {
-    id: number;
-    name: string;
-    image: string;
-    description: string;
-    price: number;
-    color: string;
-  }): Shoe {
+  static fromJson(props: ShoeDTO): Shoe {
     return new Shoe(props.id, props.image, props.name, props.description, props.price, props.color);
   }
+}
+
+interface ShoeDTO {
+  id: number;
+  image: string;
+  name: string;
+  description: string;
+  price: number;
+  color: string;
 }
 
 export default Shoe;

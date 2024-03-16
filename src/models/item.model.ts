@@ -1,7 +1,7 @@
 interface Item {
   id: number;
   name: string;
-  imageUrl: string;
+  image?: string;
   description: string;
   price: number;
   color?: string;

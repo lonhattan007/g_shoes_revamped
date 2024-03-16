@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import nikeLogo from '@assets/images/nike.png';
 import './Section.css';
 
 function Section(props: {
@@ -26,7 +27,7 @@ function Section(props: {
       }
     >
       <div className='mx-0 my-[12px] relative z-10'>
-        <img src='assets/images/nike.png' alt='Nike Logo' className='w-[50px]' />
+        <img src={nikeLogo} alt='Nike Logo' className='w-[50px]' />
       </div>
       <div className='text-[24px] font-bold z-20 relative my-[16px] flex content-between'>
         <p className='flex-1'>{props.title}</p>

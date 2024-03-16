@@ -57,11 +57,13 @@
 /*   text-align: center; */
 /* } */
 
+/* Firefox scrollbar */
 * {
-  scrollbar-color: unset;
-  scrollbar-width: unset !important;
+  scrollbar-color: unset !important;
+  scrollbar-width: none !important;
 }
 
+/* Chromium scrollbar */
 *::-webkit-scrollbar {
   display: none;
 }
