@@ -6,7 +6,10 @@ export default {
       white: '#ffffff',
       black: '#303841',
       grey: '#777777',
-      yellow: '#f6c90e',
+      yellow: {
+        DEFAULT: '#f6c90e',
+        dark: '#f8d43f',
+      },
     },
     extend: {
       screens: {
