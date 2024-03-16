@@ -39,3 +39,20 @@ next-env.d.ts
 .idea
 .vscode
 Session.vim
+
+
+# flutter
+/.dart_tool/
+/.flutter-plugins
+/.flutter-plugins-dependencies
+/.packages
+/generated/
+/packages/
+.pub-cache/
+/build/
+ios/
+android/
+web/
+windows/
+macos/
+linux/
