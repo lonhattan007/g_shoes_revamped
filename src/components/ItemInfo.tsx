@@ -58,7 +58,7 @@ const ItemInfo = (props: { className?: string; key?: string; item: CartItem }) =
               +
             </button>
           </div>
-          <div className='delete-button flex bg-yellow hover:bg-[#f8d43f] w-[28px] h-[28px] rounded-[100%] items-center justify-center'>
+          <div className='delete-button flex bg-yellow hover:bg-yellow-dark w-[28px] h-[28px] rounded-[100%] items-center justify-center'>
             <button onClick={handleDeleteItem}>
               <img className='w-[16px] h-[16px]' src={trashLogo} alt='' />
             </button>
