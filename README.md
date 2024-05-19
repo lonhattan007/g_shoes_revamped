@@ -4,7 +4,7 @@ Revamped version of the [Gshoes](https://github.com/lonhattan007/gshoes) shoppin
 Simple shopping cart demonstration.
 
 This simple project can be a good starting point for learning new front-end technologies, or for a quick prototype.
-The main branch is built with my favorite stack: React.js, Vite, Zustand, and TailwindCSS.
+This branch is built with the T3 stack: Next.js, Typescript, TailwindCSS, and Zustand.
 
 ## Materials
 

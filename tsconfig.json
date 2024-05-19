@@ -1,38 +1,37 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    // "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-
+    "module": "esnext",
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "esModuleInterop": true /* needed to resolve json */,
     "isolatedModules": true,
+    "incremental": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-
+    "jsx": "preserve",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-
     /* Path resolve */
     "paths": {
-      "@assets/*": ["./assets/*"],
-      "@data/": ["./data/*"],
-      "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@models/*": ["./src/models/*"],
-      "@stores/*": ["./src/stores/*"],
-      "@utils/*": ["./src/utils/*"]
-    }
+      "@/*": ["./*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["src", "tests", "vite.config.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
   "references": [
     {
       "path": "./tsconfig.node.json"
