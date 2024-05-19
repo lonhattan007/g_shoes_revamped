@@ -23,19 +23,25 @@
 
     /* Path resolve */
     "paths": {
-      "@assets/*": ["./assets/*"],
-      "@data/": ["./data/*"],
-      "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@models/*": ["./src/models/*"],
-      "@stores/*": ["./src/stores/*"],
-      "@utils/*": ["./src/utils/*"]
+      // "@assets/*": ["./assets/*"],
+      // "@data/": ["./data/*"],
+      // "@components/*": ["./src/components/*"],
+      // "@constants/*": ["./src/constants/*"],
+      // "@models/*": ["./src/models/*"],
+      // "@stores/*": ["./src/stores/*"],
+      // "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src", "tests", "vite.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
     }
   ]
 }
